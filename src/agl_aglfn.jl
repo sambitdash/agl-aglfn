@@ -13,7 +13,8 @@ load_file(filename) = readdlm(filename, ';', String, '\n')
     Returns the mapping of glyph code to unicode character code for new fonts.
 """
 function aglfn()
-    a = load_file("aglfn.txt")
+    path = joinpath(Pkg.dir("agl_aglfn"), "aglfn.txt")
+    a = load_file(path)
     b = similar(a, Any)
     b[:,2:3] .= @view a[:,2:3]
     b[:,1] = map(x->Char(parse(UInt16, x, 16)), @view a[:,1])
@@ -27,7 +28,8 @@ end
     Returns the mapping of glyph code to unicode character code.
 """
 function agl()
-    a = load_file("glyphlist.txt")
+    path = joinpath(Pkg.dir("agl_aglfn"), "glyphlist.txt")
+    a = load_file(path)
     b = similar(a, Any)
     b[:,1] .= @view a[:,1]
     b[:,2] .= map(@view a[:,2]) do x
@@ -44,11 +46,11 @@ end
     Returns the mapping of glyph code to unicode character code.
 """
 function zapfdingbats()
-    a = load_file("zapfdingbats.txt")
-
+    path = joinpath(Pkg.dir("agl_aglfn"), "zapfdingbats.txt")
+    a = load_file(path)
     b = similar(a, Any)
     b[:,1] .= @view a[:,1]
-    b[:,2] .= broadcast(x->Char(parse(UInt16, x, 16)),@view a[:,2])
+    b[:,2] .= map(x->Char(parse(UInt16, x, 16)),@view a[:,2])
     return b
 end
 
