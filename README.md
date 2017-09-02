@@ -1,3 +1,5 @@
+This package is created to register the Adobe AGL & AGLFN open source project into the Julia package repository. Anyone using Adobe fonts can reference this project to access the Adobe glyph names. The original README follows: 
+
 # AGL & AGLFN
 
 This open source project is intended to be coupled with the [AGL Specification](https://github.com/adobe-type-tools/agl-specification), and provides the resources that it references.
