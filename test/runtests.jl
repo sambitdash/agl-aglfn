@@ -1,6 +1,6 @@
 using Base.Test
-using agl_aglfn
+using AdobeGlyphList
 
-@test size(agl_aglfn.agl()) == (4281, 2)
-@test size(agl_aglfn.aglfn()) == (586, 3)
-@test size(agl_aglfn.zapfdingbats()) == (201, 2)
+@test size(AdobeGlyphList.agl()) == (4281, 2)
+@test size(AdobeGlyphList.aglfn()) == (586, 3)
+@test size(AdobeGlyphList.zapfdingbats()) == (201, 2)

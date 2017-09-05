@@ -1,8 +1,10 @@
-module agl_aglfn
+module AdobeGlyphList
 
 export  aglfn,
         agl,
         zapfdingbats
+
+struct ThisModule end
 
 load_file(filename) = readdlm(filename, ';', String, '\n')
 
@@ -13,7 +15,7 @@ load_file(filename) = readdlm(filename, ';', String, '\n')
     Returns the mapping of glyph code to unicode character code for new fonts.
 """
 function aglfn()
-    path = joinpath(Pkg.dir("agl_aglfn"), "aglfn.txt")
+    path = joinpath(Pkg.dir("AdobeGlyphList"), "aglfn.txt")
     a = load_file(path)
     b = similar(a, Any)
     b[:,2:3] .= @view a[:,2:3]
@@ -28,7 +30,7 @@ end
     Returns the mapping of glyph code to unicode character code.
 """
 function agl()
-    path = joinpath(Pkg.dir("agl_aglfn"), "glyphlist.txt")
+    path = joinpath(Pkg.dir("AdobeGlyphList"), "glyphlist.txt")
     a = load_file(path)
     b = similar(a, Any)
     b[:,1] .= @view a[:,1]
@@ -46,7 +48,7 @@ end
     Returns the mapping of glyph code to unicode character code.
 """
 function zapfdingbats()
-    path = joinpath(Pkg.dir("agl_aglfn"), "zapfdingbats.txt")
+    path = joinpath(Pkg.dir("AdobeGlyphList"),"zapfdingbats.txt")
     a = load_file(path)
     b = similar(a, Any)
     b[:,1] .= @view a[:,1]
