@@ -4,7 +4,9 @@ export  aglfn,
         agl,
         zapfdingbats
 
-struct ThisModule end
+@static if VERSION >= v"0.7-"
+    using DelimitedFiles
+end
 
 load_file(filename) = readdlm(filename, ';', String, '\n')
 
