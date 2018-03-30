@@ -1,4 +1,11 @@
-using Base.Test
+@static if VERSION >= v"0.7-"
+    using DelimitedFiles
+    using Pkg
+    using Test
+else
+    using Base.Test    
+end
+
 using AdobeGlyphList
 
 @test size(AdobeGlyphList.agl()) == (4281, 2)
