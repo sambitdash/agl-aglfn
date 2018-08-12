@@ -4,9 +4,8 @@ export  aglfn,
         agl,
         zapfdingbats
 
-using Compat
-using Compat.DelimitedFiles
-using Compat.Pkg
+using DelimitedFiles
+using Pkg
 
 load_file(filename) = readdlm(filename, ';', String, '\n', comments=true, comment_char='#')
 

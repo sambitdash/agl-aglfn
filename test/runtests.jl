@@ -1,6 +1,5 @@
-using Compat
 using AdobeGlyphList
-using Compat.Test
+using Test
 
 @test size(AdobeGlyphList.agl()) == (4281, 2)
 @test size(AdobeGlyphList.aglfn()) == (586, 3)
