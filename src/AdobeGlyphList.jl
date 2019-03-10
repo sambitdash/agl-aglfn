@@ -9,11 +9,7 @@ using Pkg
 
 load_file(filename) = readdlm(filename, ';', String, '\n', comments=true, comment_char='#')
 
-@static if VERSION >= v"0.7-"
-    to_uint16(x) = parse(UInt16, x, base=16)
-else
-    to_uint16(x) = parse(UInt16, x, 16)
-end
+to_uint16(x) = parse(UInt16, x, base=16)
 
 """
 ```
